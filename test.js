@@ -8,3 +8,11 @@ it('should convert fahrenheit to celsius', function () {
 	assert.equal(f(59), 15);
 	assert.equal(f(0).toFixed(2), '-17.78');
 });
+
+it('should throw when passing nonsense input', function () {
+	['foobar', function () {}, [], {}].forEach(function (input) {
+		assert.throws(function () {
+			f(input);
+		});
+	});
+});
