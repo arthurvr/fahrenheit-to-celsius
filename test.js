@@ -1,18 +1,22 @@
 'use strict';
-var assert = require('assert');
+var test = require('ava');
 var f = require('./');
 
-it('should convert fahrenheit to celsius', function () {
-	assert.equal(f(33.8).toFixed(2), '1.00');
-	assert.equal(f(23), -5);
-	assert.equal(f(59), 15);
-	assert.equal(f(0).toFixed(2), '-17.78');
+test('should convert fahrenheit to celsius', function (t) {
+	t.is(f(33.8).toFixed(2), '1.00');
+	t.is(f(23), -5);
+	t.is(f(59), 15);
+	t.is(f(0).toFixed(2), '-17.78');
+
+	t.end();
 });
 
-it('should throw when passing nonsense input', function () {
+test('should throw when passing nonsense input', function (t) {
 	['foobar', function () {}, [], {}].forEach(function (input) {
-		assert.throws(function () {
+		t.throws(function () {
 			f(input);
 		});
 	});
+
+	t.end();
 });
