@@ -1,8 +1,7 @@
-'use strict';
-var test = require('ava');
-var f = require('./');
+import test from 'ava';
+import f from './';
 
-test('should convert fahrenheit to celsius', function (t) {
+test('should convert fahrenheit to celsius', t => {
 	t.is(f(33.8).toFixed(2), '1.00');
 	t.is(f(23), -5);
 	t.is(f(59), 15);
@@ -11,9 +10,9 @@ test('should convert fahrenheit to celsius', function (t) {
 	t.end();
 });
 
-test('should throw when passing nonsense input', function (t) {
-	['foobar', function () {}, [], {}].forEach(function (input) {
-		t.throws(function () {
+test('should throw when passing nonsense input', t => {
+	['foobar', function () {}, [], {}].forEach(input => {
+		t.throws(() => {
 			f(input);
 		});
 	});
