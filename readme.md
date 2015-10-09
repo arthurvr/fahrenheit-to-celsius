@@ -13,11 +13,12 @@ $ npm install --save fahrenheit-to-celsius
 ## Usage
 
 ```js
-var fahrenheitToCelsius = require('fahrenheit-to-celsius');
+const fahrenheitToCelsius = require('fahrenheit-to-celsius');
 
 fahrenheitToCelsius(1);
 //=> -17.2222
 ```
+
 
 ## License
 
